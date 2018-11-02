@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "feeds#top.html"
+  root "feeds#top"
   resources :feeds do
     collection do
       post :confirm
