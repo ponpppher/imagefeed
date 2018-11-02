@@ -1,0 +1,25 @@
+<h1>common form</h1>
+
+<%= form_with(model:@feed, local:true, url: choose_new_or_edit ) do |form| %>
+  <% if @feed.errors.any? %>
+    <div id = "error_explanation">
+      <h2> <%= @feed.errors.count %> errors found! </h2>
+      <ul>
+        <% @feed.errors.full_messages.each do | msg | %>
+          <li> <%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "feeds_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+    <%= image_tag @feed.image.url if @feed.image.url %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.file_field :image %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<% link_to 'return', feeds_path %>

@@ -1,0 +1,15 @@
+<%= form_with(model:@feed, local:true, url:feeds_path) do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image %>
+  <%= form.hidden_field :image_cache %>
+  <p>content:<%= @feed.content %>
+  <p>image:<%= image_tag @feed.image.url %>
+  <%= form.submit %>
+<% end %>
+
+<%= form_with(model:@feed, local:true, url: new_feed_path, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit 'return', name: 'back' %>
+<% end %>

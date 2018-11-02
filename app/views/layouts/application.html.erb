@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Imagefeed</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class = "container">
+      <header>
+        <nav>
+          <ul>
+            <div class="menue_items">
+              <div>
+                <li><a href="/">Home</a></li>
+                <li><a href="/feeds">FeedList</a></li>
+                <li><a href="/feeds/new">NewFeed</a></li>
+              </div>
+              <div>
+                <% if logged_in? %>
+                  <li><%= link_to "Profile", user_path(current_user.id) %></li>
+                  <li><%= link_to "Logout", session_path(current_user.id), method: :delete  %></li>
+                <% else %>
+                  <li><%= link_to "Sign up", new_user_path %>
+                  <li><%= link_to "Login", new_session_path %>
+                <% end %>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </header>
+
+      <% flash.each do|key, value| %>
+        <%= content_tag(:div, value, class:"#{key}") %>
+      <% end %>
+      
+      <%= yield %>
+
+      <footer>
+        <div>
+          <p>Dive into code</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
