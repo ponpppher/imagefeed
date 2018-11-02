@@ -1,5 +1,3 @@
-<h1>common form</h1>
-
 <%= form_with(model:@feed, local:true, url: choose_new_or_edit ) do |form| %>
   <% if @feed.errors.any? %>
     <div id = "error_explanation">

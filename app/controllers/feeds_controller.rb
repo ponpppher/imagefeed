@@ -15,7 +15,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
   def confirm
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-    redirect_to 'new' if @feed.invalid?
+    render :new if @feed.invalid?
   end
 
   def create
@@ -24,7 +24,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
     if @feed.save
       redirect_to feeds_path, notice: 'new feed posted'
     else
-      render 'new'
+      render :new
     end 
   end
 
@@ -35,7 +35,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
     if @feed.update(feed_params)
       redirect_to feeds_path, notice:"feed edited"
     else
-      redirect_to 'edit'
+      render :edit
     end
   end
 

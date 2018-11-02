@@ -1,6 +1,3 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
-
 <%= form_with(scope: :session, local:true, url:sessions_path) do | form | %>
   <%= form.label :email %>
   <%= form.email_field :email %>
