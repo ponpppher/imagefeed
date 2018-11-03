@@ -6,14 +6,18 @@
   <table>
     <tbody>
       <% @feed.each do | feed | %>
-        <tr class = "table_content">
-          <td>user:<%= feed.user.name %></td>
-          <td>content:<%= feed.content %></td>
-          <td>image:<%= image_tag feed.image.url %></td>
-        </tr>
-        <tr class = "btn btn_eddit">
-          <td><%= link_to 'edit', edit_feed_path(feed.id) %></td>
-          <td><%= link_to 'destroy', feed_path(feed.id), method: :delete, data: {confirm: 'do you really want to delete this?'} %></td>
+        <tr class="row">
+          <td class="thumbnail">image:<%= image_tag feed.image.url %>
+            <div class="caption">
+              <h3>content</h3>
+              <p><strong><%= feed.content %></strong>
+                <% if current_user && current_user.id == feed.user_id %>
+                  <p class="btn btn-default"><%= link_to 'edit', edit_feed_path(feed.id) %></p>
+                  <p class="btn btn-default"><%= link_to 'destroy', feed_path(feed.id), method: :delete, data: {confirm: 'do you really want to delete this?'} %></p>
+                <% end %>
+              </p>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>

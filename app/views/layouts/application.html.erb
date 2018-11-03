@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,13 +17,13 @@
           <ul>
             <div class="menue_items">
               <div>
-                <li><a href="/">Home</a></li>
-                <li><a href="/feeds">FeedList</a></li>
-                <li><a href="/feeds/new">NewFeed</a></li>
+                <li><a href="/"><span class="glyphicon glyphicon-home"> Home</span></a></li>
+                <li><a href="/feeds"><span class="glyphicon glyphicon-picture"> FeedList</span></a></li>
+                <li><a href="/feeds/new"><span class="glyphicon glyphicon-camera"> NewFeed</span></a></li>
               </div>
               <div>
                 <% if logged_in? %>
-                  <li><%= link_to "Profile", user_path(current_user.id) %></li>
+                  <li><%= link_to current_user.name, user_path(current_user.id) %></li>
                   <li><%= link_to "Logout", session_path(current_user.id), method: :delete  %></li>
                 <% else %>
                   <li><%= link_to "Sign up", new_user_path %>
