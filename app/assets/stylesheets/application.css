@@ -21,7 +21,7 @@ html{
 
 header{
     background-color: aliceblue;
-    font-family: 'Glyphicons Halflings'
+    font-family: 'glyphicon'
 }
 
 header ul{
@@ -79,9 +79,8 @@ footer{
 }
 
 
-/*
 @font-face {
-  font-family: "Glyphicons Halflings";
+  font-family: "glyphicon";
 
   src: font-url("glyphicons-halflings-regular.eot");
   src: font-url("glyphicons-halflings-regular.svg");
@@ -89,4 +88,3 @@ footer{
   src: font-url("glyphicons-halflings-regular.woff");
   src: font-url("glyphicons-halflings-regular.woff2");
 }
-*/
