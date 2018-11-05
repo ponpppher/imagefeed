@@ -4,7 +4,6 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 
-Rails.application.config.assets.paths << Rails.root.join("node_modules", "bootstrap", "dist", "fonts")
 
 module Imagefeed
   class Application < Rails::Application
