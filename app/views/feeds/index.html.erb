@@ -9,6 +9,7 @@
         <tr class="row">
           <td class="thumbnail">image:<%= image_tag feed.image.url %>
             <div class="caption">
+              <p>user:<%= feed.user.name %></p>
               <h3>content</h3>
               <p><strong><%= feed.content %></strong>
                 <% if current_user && current_user.id == feed.user_id %>
