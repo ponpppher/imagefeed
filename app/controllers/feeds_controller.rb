@@ -44,7 +44,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
     redirect_to feeds_path, notice:"feed deleted"
   end
 
-private
+  private
   def feed_params
     params.require(:feed).permit(:content, :image, :image_cache)
   end

@@ -21,7 +21,6 @@ html{
 
 header{
     background-color: aliceblue;
-/*    font-family: 'glyphicon'*/
 }
 
 header ul{
@@ -49,7 +48,7 @@ header ul a{
     margin:0 auto;
     min-width: 100%;
     min-height: 100%;
-    padding: 0px 0px 70px 0px;
+    padding: 0px 0px 70px 0px !important;
 }
 
 .menue_items{
@@ -77,14 +76,3 @@ footer{
     width:100%;
     background-color: #2f4f4f;
 }
-
-/*
-@font-face {
-  font-family: ‘Glyphicons Halflings’;
-  src: url(glyphicons-halflings-regular.eot);
-  src: url(glyphicons-halflings-regular.eot?#iefix) format(‘embedded-opentype’),
-  url(glyphicons-halflings-regular.woff) format(‘woff’),
-  url(glyphicons-halflings-regular.ttf) format(‘truetype’),
-  url(glyphicons-halflings-regular.svg#glyphicons-halflingsregular) format(‘svg’);
-}
-*/
