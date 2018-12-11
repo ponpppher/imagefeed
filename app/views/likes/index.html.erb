@@ -1,6 +1,20 @@
-
-<% @feed.each do | feed | %>
-  <%= feed.user.id %>
-<% end %>
-
-<%= @user %>
+<h2>favorite feeds</h2>
+<div class="like_table" align="center">
+  <table>
+    <tbody>
+      <% @like.each do | like | %>
+        <tr class="row">
+          <td class="thumbnail"><%= image_tag like.image.url %>
+            <div class="caption">
+              <p>user:<%= like.user.name %></p>
+              <h3>content</h3>
+              <p><strong><%= like.content %></strong></p>
+              <p class="btn btn-default"><%= link_to 'unlike', like_path(id: like.id), method: :delete %></p>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <table>
+  <%= link_to 'back to profile page', user_path(current_user.id) %>
+</div>

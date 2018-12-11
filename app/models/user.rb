@@ -15,4 +15,6 @@ class User < ApplicationRecord
     uniqueness: true
 
   has_many :feeds
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_feed, through: :favorites, source: :feed
 end

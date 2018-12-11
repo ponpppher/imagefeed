@@ -2,6 +2,7 @@ class FeedsController < ApplicationController
 before_action :set_feed, only:[:edit, :update, :destroy]
   def index
     @feed = Feed.all.reverse_order
+    @favorite = current_user.favorites
   end
 
   def new

@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   resources :users, only:[:new, :create, :show]
   resources :sessions, only:[:new, :create, :destroy]
-  resources :likes, only:[:index]
+  resources :favorites, only:[:create, :destroy]
+  resources :likes, only:[:index, :destroy]
 end

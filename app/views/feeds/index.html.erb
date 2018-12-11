@@ -12,9 +12,15 @@
               <p>user:<%= feed.user.name %></p>
               <h3>content</h3>
               <p><strong><%= feed.content %></strong>
-                <% if current_user && current_user.id == feed.user_id %>
-                  <p class="btn btn-default"><%= link_to 'edit', edit_feed_path(feed.id) %></p>
-                  <p class="btn btn-default"><%= link_to 'destroy', feed_path(feed.id), method: :delete, data: {confirm: 'do you really want to delete this?'} %></p>
+                <% if current_user.present? %>
+                  <% if current_user.id == feed.user_id %>
+                    <p class="btn btn-default"><%= link_to 'edit', edit_feed_path(feed.id) %></p>
+                    <p class="btn btn-default"><%= link_to 'destroy', feed_path(feed.id), method: :delete, data: {confirm: 'do you really want to delete this?'} %></p>
+                  <% elsif current_user.favorites.find_by(feed_id:feed.id).present? %>
+                      <p class="btn btn-default"><%= link_to 'unlike', favorite_path(id: feed.id), method: :delete %></p>
+                  <% else %>
+                      <p class="btn btn-default"><%= link_to 'like', favorites_path(feed_id: feed.id), method: :post %></p>
+                  <% end %>
                 <% end %>
               </p>
             </div>
