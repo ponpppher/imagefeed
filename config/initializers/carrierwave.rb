@@ -1,4 +1,4 @@
-class CarrierWave.config do |config|
+CarrierWave.configure do |config|
   require 'carrierwave/storage/abstract'
   require 'carrierwave/storage/file'
   require 'carrierwave/storage/fog'
@@ -14,7 +14,7 @@ class CarrierWave.config do |config|
   }
 
   config.fog_public = true
-  config.fog_attributes = {'Cache-Control' => 'public, max-age=86400true'}
+  config.fog_attributes = {'Cache-Control' => 'public, max-age=86400'}
 
   case Rails.env
     when 'production'
@@ -23,6 +23,5 @@ class CarrierWave.config do |config|
     when 'development'
       config.fog_directory = 'imagefeed-development'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/imagefeed-development'
-    end
   end
 end
