@@ -1,15 +1,24 @@
 class FeedsController < ApplicationController
 before_action :set_feed, only:[:edit, :update, :destroy]
+
   def index
-    @feed = Feed.all.reverse_order
-    @favorite = current_user.favorites
+    if logged_in?
+      @feed = Feed.all.reverse_order
+      @favorite = current_user.favorites
+    else
+      redirect_to new_session_path
+    end
   end
 
   def new
-    if params[:back]
-      @feed = Feed.new(feed_params)
+    if logged_in?
+      if params[:back]
+        @feed = Feed.new(feed_params)
+      else
+        @feed = Feed.new
+      end
     else
-      @feed = Feed.new
+      redirect_to new_session_path
     end
   end
 
