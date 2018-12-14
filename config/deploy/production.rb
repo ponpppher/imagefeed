@@ -10,7 +10,9 @@ server '18.182.176.228', user: 'app', roles: %w{app db web}
 
 set :ssh_options, keys: '~/.ssh/dic_instance.pem'
 
-
+before_exec do | server |
+  ENV["BUNDOLE_GEMFILE"] = File.join(File.expand_path("../../../../", __FILE__), "current", "Gemfile")
+end
 
 # role-based syntax
 # ==================
