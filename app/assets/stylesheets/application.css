@@ -37,7 +37,7 @@ header ul a{
 
 .main-header{
     padding-bottom: 15%;
-    background-image: url("/assets/camera.jpg");
+    background-image: url("/images/camera.jpg");
     background-attachment: fixed;
     background-size:cover;
 }
