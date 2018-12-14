@@ -17,6 +17,10 @@ pid $pid
 
 preload_app true
 
+before_exec do | server |
+  ENV["BUNDOLE_GEMFILE"] = File.join(File.expand_path("../../../../", __FILE__), "current", "Gemfile")
+end
+
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
   old_pid = "#{server.config[:pid]}.oldbin"
